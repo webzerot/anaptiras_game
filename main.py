@@ -58,6 +58,10 @@ def add_question(q: Question):
     save_questions(questions)
     return {"message": "Η ερώτηση προστέθηκε!", "question": new_q}
 
+@app.get("/all-questions")
+def get_all_questions():
+    return questions
+
 # DELETE – Διαγραφή ερώτησης με βάση το ID
 @app.delete("/delete-question/{question_id}")
 def delete_question(question_id: int):
@@ -70,3 +74,4 @@ def delete_question(question_id: int):
     
     save_questions(questions)
     return {"message": f"Η ερώτηση με id {question_id} διαγράφηκε."}
+
